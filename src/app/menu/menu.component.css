@@ -1,0 +1,42 @@
+.navegacion {
+  margin-top: 70px;
+  background-color: rgb(114, 32, 32);
+  height: 100px;
+  display: flex;
+  z-index: 3;
+}
+.circulo_nav {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  height: 150px;
+  width: 160px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.circulo_nav img {
+  height: 180px;
+  width: 180px;
+  position: absolute;
+  right: -12px;
+  bottom: -21px;
+}
+.circulo2_nav {
+  position: absolute;
+  height: 170px;
+  width: 180px;
+  border-radius: 50%;
+  background-color: rgb(114, 32, 32);
+  margin-top: -50px;
+  margin-left: 70px;
+
+}
+.navbar{
+  margin-left: 1990px;
+  padding-top: 35px;
+  background-color: rgb(114, 32, 32) !important;
+}
+.nav-item-inicio{
+  margin-left: 300px;
+}
+

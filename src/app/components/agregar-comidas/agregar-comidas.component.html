@@ -1,0 +1,35 @@
+<app-menu></app-menu>
+<div class="container">
+
+          <form [formGroup]="formRegistrar" >
+                <div class="row">
+                        <mat-toolbar class="front" >
+                        <span>Registra Comidas</span>
+                        </mat-toolbar>
+                </div>
+                <div  class="row"  style="margin-top: 3%">
+                            <mat-form-field class="col-md-6">
+                                <mat-label>nombres</mat-label>
+                                <input  matInput [(ngModel)] ="comidas.nombres" formControlName="Validanombres">
+                                <mat-hint style="color: red;" *ngIf="formRegistrar.controls.Validanombres" >
+                                </mat-hint>
+                            </mat-form-field>
+                            <mat-form-field class="col-md-6">
+                              <mat-label>Descripcion</mat-label>
+                              <input  matInput [(ngModel)] ="comidas.descripcion" formControlName="validaDescripcion">
+                              <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaDescripcion" >
+                              </mat-hint>
+                          </mat-form-field>
+                          <mat-form-field class="col-md-6">
+                            <mat-label>Precio</mat-label>
+                            <input  matInput [(ngModel)] ="comidas.precio" formControlName="validaPrecio">
+                            <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaPrecio" >
+                            </mat-hint>
+                        </mat-form-field>
+
+                </div>
+                <div  class="row"  style="margin-top: 3%; margin-left: auto; margin-right: auto; max-width: fit-content;" >
+                    <button mat-raised-button type="submit" [disabled]="formRegistrar.invalid" color="primary" (click)="registra()">Registra</button>
+                </div>
+            </form>
+  </div>

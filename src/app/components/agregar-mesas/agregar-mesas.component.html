@@ -1,0 +1,37 @@
+<app-menu></app-menu>
+<div class="container">
+
+          <form [formGroup]="formRegistrar" >
+                <div class="row">
+                        <mat-toolbar class="front" >
+                        <span>Registra Mesas</span>
+                        </mat-toolbar>
+                </div>
+                <div  class="row"  style="margin-top: 3%">
+                            <mat-form-field class="col-md-6">
+                                <mat-label>Capacidad</mat-label>
+                                <input  matInput [(ngModel)] ="mesas.capacidad" formControlName="validaCapacidad">
+                                <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaCapacidad.touched" >
+                                </mat-hint>
+                            </mat-form-field>
+
+                            <mat-form-field class="col-md-6">
+                                <mat-label>Sede</mat-label>
+                                <mat-select [(ngModel)]="mesas.sede!.id_sede" formControlName="validaSede">
+                                    <mat-option value="-1"> [Seleccione] </mat-option>
+                                    <mat-option  *ngFor="let x of lstSede" [value]="x.id_sede">
+                                        {{x.nombre}}
+                                    </mat-option>
+                                </mat-select>
+                                <mat-hint style="color: red;" *ngIf="formRegistrar.controls.validaSede.touched">
+                                    <span *ngIf="formRegistrar.controls.validaSede.hasError('min')">
+                                        La sede es requerido
+                                    </span>
+                                </mat-hint>
+                            </mat-form-field>
+                </div>
+                <div  class="row"  style="margin-top: 3%; margin-left: auto; margin-right: auto; max-width: fit-content;" >
+                    <button mat-raised-button type="submit" [disabled]="formRegistrar.invalid" color="primary" (click)="registra()">Registra</button>
+                </div>
+      </form>
+  </div>

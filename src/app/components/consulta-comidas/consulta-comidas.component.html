@@ -1,0 +1,48 @@
+<app-menu></app-menu>
+<div class="container">
+    <div class="row">
+        <mat-toolbar class="front">
+            <span>Consulta Comidas</span>
+        </mat-toolbar>
+    </div>
+
+    <div class="row" style="margin-top: 3%">
+        <mat-form-field class="col-md-5">
+            <mat-label>Nombres</mat-label>
+            <input matInput [(ngModel)]="nombres" >
+        </mat-form-field>
+    </div>
+
+    <div class="row" style="margin-top: 3%">
+            <mat-form-field class="col-md-6">
+                <mat-label>Precio</mat-label>
+                <input matInput [(ngModel)]="precio">
+            </mat-form-field>
+    </div>
+
+    <div class="row" style="margin-top: 3%; display: flex; align-items: center; justify-content: center">
+        <button (click)="consultar()" mat-raised-button type="button" color="primary" style="width: 100px;" >Filtrar</button>
+    </div>
+
+    <div class="row" style="margin-top: 3%">
+
+        <mat-table #table class="mat-cell" [dataSource]="dataSource">
+            <ng-container matColumnDef="nombres">
+                <mat-header-cell mat-header-cell *matHeaderCellDef>Nombre</mat-header-cell>
+                <mat-cell *matCellDef="let aux">{{ aux.nombres}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="descripcion">
+                <mat-header-cell mat-header-cell *matHeaderCellDef>descripcion</mat-header-cell>
+                <mat-cell *matCellDef="let aux">{{ aux.descripcion}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="precio">
+                <mat-header-cell mat-header-cell *matHeaderCellDef>precio</mat-header-cell>
+                <mat-cell *matCellDef="let aux">{{ aux.precio}}</mat-cell>
+            </ng-container>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let aux; columns: displayedColumns"></mat-row>
+        </mat-table>
+        <mat-paginator [pageSizeOptions]="[6,8,10]" showFirstLastButtons></mat-paginator>
+
+    </div>
+</div>

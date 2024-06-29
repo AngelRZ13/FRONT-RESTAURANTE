@@ -1,5 +1,63 @@
-<app-menu></app-menu>
-<div class="container text-center">
-    <div *ngIf="isLogged; else loggedOut"><h5>Bienvenido {{nombreUsuario}}</h5></div>
-    <ng-template #loggedOut><h5>Para ingresar debe Inicia Sesión</h5></ng-template>
+<div class="container_principal">
+
+  <div class="video-background">
+      <video autoplay loop muted id="background-video">
+          <source src="../assets/videos/video_sabore_mundo.mp4" type="video/mp4">
+      </video>
+      <div class="overlay"></div>
+  </div>
+
+  <div class="landing_nav">
+      <div class="navegacion">
+          <div class="circulo2_nav">
+              <div class="circulo_nav">
+                <app-menu></app-menu>
+              </div>
+          </div>
+      </div>
+      <div class="landing_text">
+          <div class="landing_text_1">
+              <h2>Bienvenido a nuestro restaurante</h2>
+          </div>
+          <div class="landing_text_2">
+              <h1>Esperamos disfrutes cada bocado</h1>
+          </div>
+          <div class="landing_img_1"><img src="../assets/imgs/Centro.png" alt=""></div>
+          <div class="landing_text_3">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat deserunt excepturi velit alias
+                  doloribus optio impedit quas et ipsam blanditiis? Voluptatem cupiditate deserunt officiis vitae
+                  excepturi animi autem ratione consectetur!</p>
+          </div>
+          <div class="bottom_reserva" (click)="openDialogRegistra()" ><button>Reserva aqui</button></div>
+      </div>
+  </div>
+
+</div>
+
+<div class="footer">
+
+  <div class="container_footer">
+      <div class="sede">
+          <div class="sede_circle">
+              <img src="../assets/imgs/cena.png" alt="">
+          </div>
+          <div class="footer_text1"><h2>Excelente servicio</h2></div>
+          <div id="footer_text"><h3>Lorem ipsum dolortatis, a similique repegni quidem laboriosam ullam consectetur error magnam fuga labore vitae dolores animi eum et earum? Dicta.</h3></div>
+      </div>
+      <div class="sede">
+          <div class="sede_circle">
+              <img src="../assets/imgs/Cubiertos.png" alt="">
+          </div>
+          <div class="footer_text1"><h2>Comida deliciosa</h2></div>
+          <div id="footer_text"><h3>Lorem, ipsum dolor sit amet s error aperiuid! Asperiores tenetur velit soluta aliquid amet. Eum, necessitatibus vero repellendus consectetur animi accusamus iure repellat!</h3></div>
+      </div>
+      <div class="sede">
+          <div class="sede_circle">
+              <img src="../assets/imgs/musica.png" alt="">
+          </div>
+          <div class="footer_text1"><h2>Musica en vivo</h2></div>
+          <div id="footer_text"><h3>Lorem, ipsum doloobis error aperiam tenetur velit soluta aliquid amet. Eum, necessitatibus vero repellendus consectetur animi accusamus iure repellat!</h3></div>
+      </div>
+  </div>
+
 </div>
