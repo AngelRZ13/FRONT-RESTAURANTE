@@ -1,1 +1,63 @@
-<p>crud-reserva works!</p>
+<app-menu></app-menu>
+<div class="container">
+  <div class="row">
+      <mat-toolbar class="front">
+          <span>Mesas</span>
+      </mat-toolbar>
+  </div>
+  <div class="row" style="margin-top: 3%">
+    <mat-form-field class="col-md-4">
+      <mat-label>Fecha de Reserva</mat-label>
+      <mat-hint>DD/MM/YYYY</mat-hint>
+      <input matInput [(ngModel)]="filtro" [matDatepicker]="picker">
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+      <button (click)="refreshTable()" mat-raised-button type="button" color="primary" style="width: 150px;">Filtrar</button>
+  </div>
+  <div class="row" style="margin-top: 3%">
+
+      <mat-table #table class="mat-cell" [dataSource]="dataSource">
+          <ng-container matColumnDef="id_reservas">
+              <mat-header-cell mat-header-cell *matHeaderCellDef>Código</mat-header-cell>
+              <mat-cell *matCellDef="let aux">{{ aux.id_reservas }}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="fecha_incio_reserva">
+              <mat-header-cell mat-header-cell *matHeaderCellDef>Fecha de reserva</mat-header-cell>
+              <mat-cell *matCellDef="let aux">{{ aux.fecha_incio_reserva}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="id_mesas">
+            <mat-header-cell mat-header-cell *matHeaderCellDef>Mesa</mat-header-cell>
+            <mat-cell *matCellDef="let aux">{{ aux.mesas.id_mesas}}</mat-cell>
+        </ng-container>
+          <ng-container matColumnDef="estado_reserva">
+              <mat-header-cell mat-header-cell *matHeaderCellDef>Estado</mat-header-cell>
+              <mat-cell *matCellDef="let aux">{{ aux.estado_reserva }}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="id_sede">
+            <mat-header-cell mat-header-cell *matHeaderCellDef>Sede</mat-header-cell>
+            <mat-cell *matCellDef="let aux">{{ aux.sede.nombre }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="acciones">
+          <mat-header-cell mat-header-cell *matHeaderCellDef>&nbsp;</mat-header-cell>
+          <mat-cell *matCellDef="let aux; let i=index;">
+
+            <button mat-icon-button color="accent" (click)="openDialogActualiza(aux)">
+              <mat-icon aria-label="Edit">edit</mat-icon>
+          </button>
+              <button mat-icon-button color="accent" (click)="delete(aux)">
+                  <mat-icon aria-label="Delete">delete</mat-icon>
+              </button>
+
+          </mat-cell>
+      </ng-container>
+       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let aux; columns: displayedColumns"></mat-row>
+     </mat-table>
+     <mat-paginator [pageSizeOptions]="[6,8,10]" showFirstLastButtons></mat-paginator>
+
+ </div>
+
+</div>
+

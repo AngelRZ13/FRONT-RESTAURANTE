@@ -25,4 +25,10 @@ export class ServiceReservaService {
   consultarCrud(filtro:string):Observable<any>{
     return this.http.get(baseUrlCrudPrueba+"/listaReservaPorFechaLike/"+ filtro);
   }
+  eliminarCrud(id:number):Observable<any>{
+    return this.http.delete(baseUrlCrudPrueba+"/eliminaReserva/"+id);
+  }
+  actualizarCrud(data:Reservas):Observable<any>{
+    return this.http.put(baseUrlCrudPrueba+"/actualizaReserva", data);
+  }
 }

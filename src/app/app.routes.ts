@@ -8,7 +8,7 @@ import { ConsultaComidasComponent } from './components/consulta-comidas/consulta
 import { CrudMesasComponent } from './components/crud-mesas/crud-mesas.component';
 import { AgregarMesasComponent } from './components/agregar-mesas/agregar-mesas.component';
 import { AgregarComidasComponent } from './components/agregar-comidas/agregar-comidas.component';
-
+import { CrudReservaComponent } from './components/crud-reserva/crud-reserva.component';
 
 
 export const routes: Routes = [
@@ -18,6 +18,7 @@ export const routes: Routes = [
 
     {path:"verConsultaComida", component:ConsultaComidasComponent },
 
+    {path:"verCrudReservas", component:CrudReservaComponent },
     {path:"verCrudMesas", component:CrudMesasComponent },
     { path: '', component: IndexComponent },
     { path: 'login', component: LoginComponent },

@@ -27,6 +27,7 @@ export class MesasService {
     return this.http.get(baseUrlCrudPrueba+"/listaMesasPorEstadoLike/"+ filtro);
   }
 
+
   actualizarCrud(data:Mesas):Observable<any>{
     return this.http.put(baseUrlCrudPrueba+"/actualizaMesas", data);
   }
